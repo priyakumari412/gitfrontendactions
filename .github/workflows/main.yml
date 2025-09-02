@@ -7,8 +7,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
-  builds:
+  test:    
+    runs-on: ubuntu-latest
+    steps:
+        - name: get code
+          uses: actions/checkout@v3
+        - name: node 
+          uses: actions/setup-node@v3
+          with:
+          node-version: 18
+
+        - name: install dependencies
+          run: npm install
+          working-directory: ./vite-project
+
+        - name: tests
+          run: npm test
+          working-directory: ./vite-project
+      
+        - name: message
+          run: echo "test successfull!"
+  build:
     needs: test
     runs-on: ubuntu-latest
     steps:
