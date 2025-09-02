@@ -16,7 +16,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: install dependencies
+        run: npm install
+        working_directory: './vite-project'
       - name: tests
-        run: npm run test
+        run: npm test
+        working_directory: './vite-project'
       - name: message
         run: echo "test successfull!"
+
+       
