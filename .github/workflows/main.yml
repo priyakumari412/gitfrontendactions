@@ -23,8 +23,12 @@ jobs:
         working-directory: ./vite-project
       - name: build
         run: npm run build
-        path: dist
         working-directory: ./vite-project
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+        - name: upload path
+          path: ./vite-project/dist
       - name: message
         run: echo "build successfull!"
 
