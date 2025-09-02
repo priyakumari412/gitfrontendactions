@@ -18,7 +18,8 @@ jobs:
           node-version: 18
   
       - name: tests
-        run: npm test
+        run: npm run test
+        working-directory: ./vite-project
        
       - name: message
         run: echo "test successfull!"
