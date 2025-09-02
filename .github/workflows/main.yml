@@ -16,5 +16,7 @@ jobs:
         uses: actions/setup-node@v3
       - name: install dependencies
         run: npm install
+      - name: tests
+        run: npm test
       - name: message
         run: echo "test successfull!"
