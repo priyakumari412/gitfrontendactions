@@ -8,6 +8,8 @@ on:
 
 jobs:
   test:
+  builds:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: get code
@@ -19,10 +21,11 @@ jobs:
       - name: install dependencies
         run: npm install
         working-directory: ./vite-project
-      - name: tests
-        run: npm test
+      - name: build
+        run: npm run build
+        path: dist
         working-directory: ./vite-project
       - name: message
-        run: echo "test successfull!"
+        run: echo "build successfull!"
 
        
