@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: 18
       - name: tests
-        run: npm test
+        run: npm run test
       - name: message
         run: echo "test successfull!"
