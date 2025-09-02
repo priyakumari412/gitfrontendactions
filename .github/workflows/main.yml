@@ -18,10 +18,10 @@ jobs:
           node-version: 18
       - name: install dependencies
         run: npm install
-        working_directory: './vite-project'
+        working_directory: ./vite-project
       - name: tests
         run: npm test
-        working_directory: './vite-project'
+        working_directory: ./vite-project
       - name: message
         run: echo "test successfull!"
 
