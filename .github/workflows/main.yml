@@ -50,4 +50,24 @@ jobs:
       - name: message
         run: echo "build successfull!"
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: vite build check 
+          path: ./vite-project/dist
+
+      - name: gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          publish_dir: ./vite-project/dist
+
+      - name: message
+        run: echo "deploy successfull!"
+
        
