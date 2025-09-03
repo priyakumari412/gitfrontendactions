@@ -37,7 +37,7 @@ jobs:
         with:
           node-version: 18
       - name: install dependencies
-        run: npm install
+        run: npm ci
         working-directory: ./vite-project
       - name: build
         run: npm run build
@@ -64,7 +64,7 @@ jobs:
       - name: gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{secrets.GITHUB_TOKEN}}
           publish_dir: ./vite-project/dist
 
       - name: message
