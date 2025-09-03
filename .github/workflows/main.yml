@@ -2,7 +2,8 @@ name: "github actions"
 
 on:
   push:
-    branches: ["main"]
+    branches: 
+          - main
 
   workflow_dispatch:
 
@@ -14,9 +15,7 @@ jobs:
           uses: actions/checkout@v3
         - name: node 
           uses: actions/setup-node@v3
-          with:
-          node-version: 18
-
+    
         - name: install dependencies
           run: npm install
           working-directory: ./vite-project
@@ -46,8 +45,8 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-        - name: upload path
-          path: ./vite-project/dist
+          - name: vite build check
+            path: ./vite-project/dist
       - name: message
         run: echo "build successfull!"
 
